@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+</head>
+<body>
+    <h1>Scan Results for {{ ip }}</h1>
+    
+    <h2>Open Ports:</h2>
+    <ul>
+        {% for port in open_ports %}
+            <li>{{ port }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Websites:</h2>
+    <ul>
+        {% for website in websites %}
+            <li>{{ website[0] }} ({{ website[1] }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
