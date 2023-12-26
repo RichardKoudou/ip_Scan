@@ -18,6 +18,6 @@ Ouvrez votre navigateur, suivez les instructions afin de réaliser le scan adapt
 Vous avez plusieurs types de scans (TCP, UDP, etc...)
 NB: Les scans UDP peuvent prendre beaucoup de temps.
 
-Le bouton "save result" vous permet de stocker les informations trouvées dans une mémoire tampon. A chaque rafraichissement de la page, ces données sont effacées.
+Le bouton "save result" vous permet de stocker les informations trouvées dans une page dédiée. A chaque click sur le bouton vider la sauvegarde, ces données sont effacées.
 Pour enregistrer les informations trouvées de façon permanente, veuillez les télécharger via le bouton "download". 
 
