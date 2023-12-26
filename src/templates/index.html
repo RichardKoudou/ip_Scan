@@ -30,16 +30,27 @@
                         <input type="submit" value="Scanner" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
                     </form>
                 </div>
-                
+                <div class="w-5/6 mx-auto mt-2 flex">
+                    <form method="post" action="/save">
+                        <input type="submit" value="save result" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                    </form>
+                    <form method="post" action="/clean">
+                        <input type="submit" value="clean save" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                    </form>
+                </div>
+            
+            
             </div>
-            <div id="resultDiv" class="w-3/6 min-h-[85vh] max-h-[85vh] justify-center px-10 py-10 bg-[#333333] text-white overflow-y-scroll">
-                {% if scanning %}
-                <p>Loading, please wait...</p>
-                {%else%}
-                    {% for result in res_string %}
-                        {{ result | safe }}
-                    {% endfor %}
-                {%endif%}
+            <div id="resultDiv" class="w-3/6 min-h-[85vh] max-h-[85vh] justify-center px-10 py-5 bg-[#333333] text-white overflow-y-scroll">
+                <div class="flex">
+                    <form class="mt-0 " method="post" action="/saved">
+                        <input type="submit" value="result saved" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                    </form>
+                    <a href="/download" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">Download File</a>
+                </div>
+                {% for result in res_string %}
+                    {{ result | safe }}
+                {% endfor %}
             </div>
         </div>
     </body>
