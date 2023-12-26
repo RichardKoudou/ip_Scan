@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="bg-[#191919] text-white flex justify-center items-center px-6 min-h-[15vh]">
+            <h1 class="font-bold text-4xl ">IP_SCAN</h1>
+        </div>
+        <div class="flex">
+            <div class="w-3/6 min-h-[85vh]">
+                <p class="text-2xl my-10 w-4/6 mx-auto flex text-center">Bienvenue sur ip_scan, une petite plateforme qui nous permet de scanner des adresses ip afin d'en receuillir les informations.</p>
+                <div class="w-5/6 mx-auto bg-[#b3b3b3] py-8 flex justify-center">
+                    <form method="post" action="/">
+                        <div class="mb-6">
+                            <label for="ip">Veuillez entrer une adresse ip à scanner</label>
+                            <input type="text" name="ip" id="ip" class="p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 text-sm rounded-lg focus:border-blue-500">
+                        </div>
+                        <select name="options" id="options" class=" mb-6 bg-gray-700 placeholder-gray-400 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">           
+                            <option value="-F">scan rapide (ports connus)</option>
+                            <option value="-sS -sU">scan tcp et udp</option>
+                            <option value="mac">adresses mac</option>
+                            <option value="sniff">sniff </option>
+                        </select>
+                        <input type="submit" value="Scanner" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                    </form>
+                </div>
+                
+            </div>
+            <div id="resultDiv" class="w-3/6 min-h-[85vh] max-h-[85vh] justify-center px-10 py-10 bg-[#333333] text-white overflow-y-scroll">
+                {% if scanning %}
+                <p>Loading, please wait...</p>
+                {%else%}
+                    {% for result in res_string %}
+                        {{ result | safe }}
+                    {% endfor %}
+                {%endif%}
+            </div>
+        </div>
+    </body>
+</html>
