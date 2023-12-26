@@ -14,7 +14,9 @@
         </div>
         <div class="flex">
             <div class="w-3/6 min-h-[85vh]">
-                <p class="text-2xl my-10 w-4/6 mx-auto flex text-center">Bienvenue sur ip_scan, une petite plateforme qui nous permet de scanner des adresses ip afin d'en receuillir les informations.</p>
+                <p class="text-2xl my-10 w-4/6 mx-auto flex text-center">Bienvenue sur ip_scan, une petite plateforme qui vous permet de scanner des adresses ip afin d'en recueillir les informations.</p>
+                <p class="w-4/6 mx-auto flex">Vous avez à votre disposition plusieurs choix de scan. Pour le scan rapide ou le scan tcp udp, vous pouvez chercher une range d'ip comme ceci : 192.168.1.0-254 en sachant que le scan tcp udp est super long. Vous avez ensuite la possibilité de récupérer l'adresse mac en entrant une seule ip </p>
+                <p class=" my-5 w-4/6 mx-auto flex">Pour finir le sniff permet d'observer les 50 paquets du réseau. Si vous spécifiez une adresse ip il n'affichera que les requêtes comportant l'adresse ip demandée.</p>
                 <div class="w-5/6 mx-auto bg-[#b3b3b3] py-8 flex justify-center">
                     <form method="post" action="/">
                         <div class="mb-6">
@@ -24,7 +26,7 @@
                         <select name="options" id="options" class=" mb-6 bg-gray-700 placeholder-gray-400 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">           
                             <option value="-F">scan rapide (ports connus)</option>
                             <option value="-sS -sU">scan tcp et udp</option>
-                            <option value="mac">adresses mac</option>
+                            <option value="mac">adresse mac</option>
                             <option value="sniff">sniff </option>
                         </select>
                         <input type="submit" value="Scanner" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
@@ -32,10 +34,10 @@
                 </div>
                 <div class="w-5/6 mx-auto mt-2 flex">
                     <form method="post" action="/save">
-                        <input type="submit" value="save result" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                        <input type="submit" value="sauvegarder les résultats" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
                     </form>
                     <form method="post" action="/clean">
-                        <input type="submit" value="clean save" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                        <input type="submit" value="vider la sauvegarde" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
                     </form>
                 </div>
             
@@ -44,9 +46,9 @@
             <div id="resultDiv" class="w-3/6 min-h-[85vh] max-h-[85vh] justify-center px-10 py-5 bg-[#333333] text-white overflow-y-scroll">
                 <div class="flex">
                     <form class="mt-0 " method="post" action="/saved">
-                        <input type="submit" value="result saved" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
+                        <input type="submit" value="afficher les résultats sauvegarder" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">
                     </form>
-                    <a href="/download" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">Download File</a>
+                    <a href="/download" class="text-white bg-gray-800 border border-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-700 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2">Télécharger les résultats</a>
                 </div>
                 {% for result in res_string %}
                     {{ result | safe }}

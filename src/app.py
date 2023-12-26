@@ -5,7 +5,7 @@ from scapy.all import ARP, Ether, srp, sniff, IP
 from flask import Flask, render_template, request, send_file
 
 
-log_path = Path(__file__).resolve().parent / "log.csv"
+log_path = Path(__file__).resolve().parent / "scan_result/result.csv"
 
 app = Flask(__name__)
                        
@@ -21,7 +21,7 @@ def packet_callback(packet, ip_address):
         else:
             capture_packets.append(packet.summary())
         
-   
+
 
 @app.route('/')
 def index():
@@ -49,7 +49,7 @@ def scan():
                 
         if option == "sniff":
             res_string = []
-            sniff(prn=lambda packet: packet_callback(packet, ip_address), filter="ip", count=30)
+            sniff(prn=lambda packet: packet_callback(packet, ip_address), filter="ip", count=50)
             for packet in capture_packets:
                 res_string.append(packet+"<br>")
 
